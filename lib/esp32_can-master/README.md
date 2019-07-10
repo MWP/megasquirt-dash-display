@@ -7,3 +7,5 @@ for the MCP2517FD SPI connected CAN module. The builtin CAN is called CAN0,
 the MCP2517FD is called CAN1. This library is specifically meant to be used with 
 the EVTV ESP32-Due board. However, with small modifications either driver found
 within this library could be used on other boards.
+
+Orginally from: https://github.com/collin80/esp32_can/tree/master/src
