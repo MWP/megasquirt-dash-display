@@ -9,7 +9,8 @@
  This project is based around:
  - NodeMCU-32s ESP32 (WROOM-32) module  
 https://www.amazon.com/s?k=nodemcu32s
- - Crystalfontz 800x480 TFT with Graphic Accelerator Board  https://www.crystalfontz.com/product/cfaf800480e0050sca11-accelerated-tft-lcd-display-kit
+ - Crystalfontz 800x480 TFT with Graphic Accelerator Board  
+https://www.crystalfontz.com/product/cfaf800480e0050sca11-accelerated-tft-lcd-display-kit
  - Crystalfontz CFA10098 breakout board  
 https://www.crystalfontz.com/product/cfa10098-eve-breakout-board
  - WS2812b LEDs (aka Neopixels)  
