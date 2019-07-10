@@ -12,6 +12,8 @@ https://www.amazon.com/s?k=nodemcu32s
  - Crystalfontz 800x480 TFT with Graphic Accelerator Board  https://www.crystalfontz.com/product/cfaf800480e0050sca11-accelerated-tft-lcd-display-kit
  - Crystalfontz CFA10098 breakout board  
 https://www.crystalfontz.com/product/cfa10098-eve-breakout-board
+ - WS2812b LEDs (aka Neopixels)  
+https://www.amazon.com/s?k=neopixel+8+stick
  - Any MC2551 CAN bus Tranciever Module setup for 5V  
 https://www.amazon.com/s?k=mcp2551+module
  - Any 5V 2-amp (or higher) regulator suitable for automotive use
