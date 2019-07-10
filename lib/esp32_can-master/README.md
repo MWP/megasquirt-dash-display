@@ -8,5 +8,5 @@ the MCP2517FD is called CAN1. This library is specifically meant to be used with
 the EVTV ESP32-Due board. However, with small modifications either driver found
 within this library could be used on other boards.
 
-Originally from: https://github.com/collin80/esp32_can/tree/master/src
+Originally from: https://github.com/collin80/esp32_can/tree/master/src  
 Changes made to suit this project by Mark Williams.
