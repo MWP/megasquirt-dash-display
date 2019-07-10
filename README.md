@@ -3,7 +3,7 @@
 
 *proof of concept*
 
- This project in current form "works", but is rough around the edges.
+ This project in current form "works", but is rough around the edges.  
  It needs a nicer method of screen configuration, and a lot of optimisation.
 
  This project is based around:
@@ -24,7 +24,7 @@ https://www.amazon.com/s?k=mcp2551+module
  PlatformIO (or Arduino IDE) needs to have the NodeMCU-32s board support (using Arduino framework)
  installed.
 
- Mark Williams (2019-07-01)
+ Mark Williams (2019-07-01)  
  Distributed under the MIT License (see LICENCE file)
 
  Other source-code / libraries taken from various sources with appropriate licences.  
