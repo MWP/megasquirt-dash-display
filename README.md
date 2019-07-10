@@ -10,9 +10,9 @@
  - NodeMCU-32s ESP32 (WROOM-32) module  
 https://www.amazon.com/s?k=nodemcu32s
  - Crystalfontz 800x480 TFT with Graphic Accelerator Board  
-https://www.crystalfontz.com/product/cfaf800480e0050sca11-accelerated-tft-lcd-display-kit
+https://www.crystalfontz.com/product/cfaf800480e0050sca11
  - Crystalfontz CFA10098 breakout board  
-https://www.crystalfontz.com/product/cfa10098-eve-breakout-board
+https://www.crystalfontz.com/product/cfa10098
  - WS2812b LEDs (aka Neopixels)  
 https://www.amazon.com/s?k=neopixel+8+stick
  - Any MC2551 CAN bus Tranciever Module setup for 5V  
