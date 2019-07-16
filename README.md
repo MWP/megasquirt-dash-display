@@ -25,7 +25,7 @@ https://www.amazon.com/s?k=mcp2551+module
  installed.
 
  Mark Williams (2019-07-01)  
- Distributed under the MIT License (see LICENCE file)
+ Distributed under the Attribution-NonCommercial-ShareAlike 4.0 International licence (see LICENCE file)
 
  Other source-code / libraries taken from various sources with appropriate licences.  
  See licence information contained within those files.
