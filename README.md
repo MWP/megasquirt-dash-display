@@ -1,7 +1,7 @@
 
 # 5-inch MEGASQUIRT ECU CANBus Dashboard Display
 
-*proof of concept*
+Instructable: https://www.instructables.com/id/MegaSquirt-Digital-Dashboard-Display/
 
  This project in current form "works", but is rough around the edges.  
  It needs a nicer method of screen configuration, and a lot of optimisation.
