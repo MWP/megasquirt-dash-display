@@ -4,7 +4,7 @@
  Project Configuration
 
  Mark Williams (2019-07-01)
- Distributed under the MIT License (see licence.txt)
+ Distributed under the GNU GENERAL PUBLIC LICENSE v3.0 (see LICENCE file)
 
 =========================================================================== */
 #ifndef __PROJCFG_H
@@ -18,9 +18,9 @@
 #define CFAF800480E0_050SC_A1_1
 
 //led bar
+#define LEDBAR_LEDNUM		(16)
 #define LEDBAR_PIN			(32)
 
-//#define EVE2_SPI_SINGLE		(1)
 #define EVE2_PIN_INT		(4)
 #define EVE2_PIN_PD			(0)
 #define EVE2_PIN_CS			(5)

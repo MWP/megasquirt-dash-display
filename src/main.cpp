@@ -25,7 +25,7 @@
  installed.
 
  Mark Williams (2019-07-01)
- Distributed under the MIT License (see licence.txt)
+ Distributed under the GNU GENERAL PUBLIC LICENSE v3.0 (see LICENCE file)
 
  Other source-code / libraries taken from various sources with appropriate licences.
  See licence information contained within those files.
@@ -62,18 +62,32 @@ void core()
 		//gather data
 		msCAN_Check();
 
-		//check if eve2 command fifo is empty
-		FT81x_FIFO_WaitUntilEmpty();
-		//is empty, continue
-
 		//check for screen touch
 		touched = !(FT81x_R32(REG_CTOUCH_TOUCH_XY + RAM_REG) & 0x8000);
 
-		//start display update
+		//The EVE2 has a display list (a list of commands that it processes on every
+		//scan line update, this runs continuously), and a co-processor command-list.
+		//Either can be used to draw to the display, but using the co-processor has some advantages.
+		//When signaled, the co-processor executes the command list in its RAM FIFO
+		//buffer, and writes to the display list.
+
+		//for detailed information on using the EVE2 (FT8xx) graphics Accelerator
+		//see: https://www.ftdichip.com/Support/Documents/ProgramGuides/FT800%20Programmers%20Guide.pdf
+
+		//check if EVE2 co-processor command list fifo is empty
+		//we write commands into the EVE2 co-processor's fifo, which we then signal
+		//it to process later. All FT81x_SendCommand() commands go onto the fifo.
+		//They are not processed by the EVE2 co-processor until FT81x_UpdateFIFO() is called.
+		FT81x_FIFO_WaitUntilEmpty();
+		//co-processor fifo is empty, continue
+
+		//tell the co-processor we are starting a new list of commands
 		FT81x_SendCommand(CMD_DLSTART);
+		//clear the screen
 		FT81x_SendCommand(CLEAR(1,1,1));
 
 		//draw display
+		//see screen1demo (s1demo.cpp) for detailed comments
 		switch (screen_num)
 		{
 			case 0: screen1ms(); break;
@@ -81,11 +95,15 @@ void core()
 			case 2: screen1demo(pos); break;
 		}
 
-		//finish update
+		//add to the fifo an end-of-commands marker
 		FT81x_SendCommand(DISPLAY());
+		//when the co-processor engine executes CMD_SWAP, it requests a display list swap
+		//immediately after current display list (current frame) is scanned out.
 		FT81x_SendCommand(CMD_SWAP);
-		//triggers EVE2 to process the command buffer
+		//all done, nothing more to add to the co-processor FIFO, tell the co-processor to
+		//start excuting the commands in the FIFO.
 		FT81x_UpdateFIFO();
+		//while its doing this, we go onto doing other things
 
 		//led bar update
 		if (screen_num == 2)
@@ -97,21 +115,19 @@ void core()
 
 		//flip screens if display was touched
 		//debounce
-		if (touch_check == 0)
-			//has not been touched
-			if (touched)
-				touch_check = 1;
-		if (touch_check == 1)
-			//has been touched, wait for release
-			if (!touched)
-			{
-				//rotate screens
-				screen_num++;
-				if (screen_num >= SCREENS)
-					screen_num = 0;
-				//reset
-				touch_check = 0;
-			}
+		if (!touch_check && touched)
+			//screen has been touched, but was not touched on last loop
+			touch_check = 1;
+		if (touch_check && !touched)
+		{
+			//no longer touched, but was on last loop = touched and released
+			//rotate screens
+			screen_num++;
+			if (screen_num >= SCREENS)
+				screen_num = 0;
+			//reset
+			touch_check = 0;
+		}
 
 		//demo screen counter
 		pos++;

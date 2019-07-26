@@ -4,7 +4,7 @@
  WS2812b led strip driver
 
  Mark Williams (2019-07-01)
- Distributed under the MIT License (see licence.txt)
+ Distributed under the GNU GENERAL PUBLIC LICENSE v3.0 (see LICENCE file)
 
 =========================================================================== */
 #include <Arduino.h>
@@ -12,7 +12,7 @@
 #include "esp32WS2811.h"
 #include "ledbar.h"
 
-static WS2811 led_bar(LEDBAR_PIN, 16);
+static WS2811 led_bar(LEDBAR_PIN, LEDBAR_LEDNUM);
 
 void LEDBar_Init(void)
 {
@@ -23,7 +23,7 @@ void LEDBar_Init(void)
 
 	//startup the WS2811 lib
 	led_bar.begin();
-	//all dark white
+	//edge two to white, rest off
 	led_bar.setAll(0,0,0);
 	led_bar.setPixel(0, 2, 2, 2);
 	led_bar.setPixel(LEDBAR_LEDNUM-1, 2, 2, 2);
@@ -63,12 +63,12 @@ void LEDBar_Update(int min_value, int max_value, int value,
 	if (full_red)
 	{
 		//full red bar
-		led_bar.setAll(5,0,0);
+		led_bar.setAll(20,0,0);
 	}
 	else if (full_orange)
 	{
-		//full orange bar
-		led_bar.setAll(4,2,0);
+		//full yellow bar
+		led_bar.setAll(4,4,0);
 	}
 	else
 	{

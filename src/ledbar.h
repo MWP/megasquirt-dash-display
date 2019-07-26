@@ -4,13 +4,11 @@
  WS2812b led strip driver
 
  Mark Williams (2019-07-01)
- Distributed under the MIT License (see licence.txt)
+ Distributed under the GNU GENERAL PUBLIC LICENSE v3.0 (see LICENCE file)
 
 =========================================================================== */
 #ifndef __LEDBAR_H
 #define __LEDBAR_H
-
-#define LEDBAR_LEDNUM	16
 
 void LEDBar_Init(void);
 void LEDBar_Update(int min_value, int max_value, int value,

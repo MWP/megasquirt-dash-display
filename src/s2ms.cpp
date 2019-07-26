@@ -4,7 +4,7 @@
  Simple Display Screen
 
  Mark Williams (2019-07-01)
- Distributed under the MIT License (see licence.txt)
+ Distributed under the GNU GENERAL PUBLIC LICENSE v3.0 (see LICENCE file)
 
 =========================================================================== */
 #include <Arduino.h>
@@ -98,7 +98,7 @@ void screen2ms(void)
 	//MAP gauge
 	//map = scalar, S16,   18, "kPa", 0.100, 0.0
 	float MAP = msCAN_S16(msCAN_Data[2].S16[1]) * 0.1f;
-	textDataf(10, tpos+=FONTHEIGHT, MAP, "MAP:", "%0.1f kpa", 5,5,240,260);
+	textDataf(10, tpos+=FONTHEIGHT, MAP, "MAP:", "%0.1f kPa", 5,5,240,260);
 
 	//TPS
 	//tps = scalar, S16,   24, "%",   0.100, 0.0
@@ -124,7 +124,7 @@ void screen2ms(void)
 	//Injector PW1
 	//pulseWidth1 = scalar, U16,    2, "ms",   0.001, 0.0
 	float PW1 = msCAN_U16(msCAN_Data[0].U16[1]) * 0.001f;
-	textDataf(10, tpos+=FONTHEIGHT, PW1, "PW1:", "%0.3f s", 0.01, -10, 10, 11);
+	textDataf(10, tpos+=FONTHEIGHT, PW1, "PW1:", "%0.3f mS", 0.01, -10, 10, 11);
 
 	//Battery Voltage
 	//batteryVoltage = scalar, S16,   26, "v",   0.100, 0.0
@@ -147,7 +147,7 @@ void screen2ms(void)
 	//EGO Correction %
 	//egoCorrection1   = scalar, S16,   34, "%",   0.1000, 0.0
 	float EGOCOR = msCAN_S16(msCAN_Data[4].S16[1]) * 0.1f;
-	textDataf(400, tpos+=FONTHEIGHT, EGOCOR, "COR:", "%0.1f %%", -10,-20,10,20);
+	textDataf(400, tpos+=FONTHEIGHT, EGOCOR, "COR:", "%0.1f %%", 75,85,115,125);
 
 	//Baro gauge
 	//barometer = scalar, S16,   16, "kPa", 0.100, 0.0

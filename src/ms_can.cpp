@@ -4,7 +4,7 @@
  Megasquirt CANBus Interface
 
  Mark Williams (2019-07-01)
- Distributed under the MIT License (see licence.txt)
+ Distributed under the GNU GENERAL PUBLIC LICENSE v3.0 (see LICENCE file)
 
 =========================================================================== */
 #include <Arduino.h>
